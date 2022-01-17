@@ -30,6 +30,9 @@ export default function Contact() {
 
     const sendEmail = (e) => {
         e.preventDefault();
+        if (!errorMessage) {
+            console.log('')
+        }
     }
 
 
