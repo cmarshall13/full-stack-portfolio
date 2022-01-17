@@ -1,25 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import { React, useState } from 'react';
+import Intro from './components/Intro';
+import About from './components/About';
+import Nav from './components/Nav';
+import Portfolio from './components/Portfolio';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
+import corinne from './assets/images/corinne-portfolio.png';
 
-function App() {
+export default function App() {
+
+  const ProfilePicture = () => {
+    return (
+      <img className="object-cover w-48 h-48 mb-6 rounded-full shadow-2xl sm:w-64 sm:h-64 mt-14" src={corinne} alt="headshot" />
+    );
+  };
+
+  const [active, setActive] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="bg-blue-dark">
+      {!active && <Intro
+        active={active}
+        setActive={setActive}
+      />}
+      <main>
+        {active && <Nav
+          active={active}
+          setActive={setActive}
+        />}
+        {active === "About" &&
+          <>
+            <About ProfilePicture={ProfilePicture} />
+          </>}
+        {active === "Portfolio" &&
+          <>
+            <Portfolio />
+          </>}
+        {active === "Contact" &&
+          <>
+            <Contact />
+          </>}
+        {active && <Footer />}
+      </main>
     </div>
   );
-}
-
-export default App;
+};
