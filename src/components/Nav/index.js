@@ -1,19 +1,21 @@
-import React from 'react'
+import { React, useState, useEffect }  from 'react'
 import { Disclosure } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
 
-const navigation = [
-  { name: 'About', href: '#', current: true },
-  { name: 'Portfolio', href: '#', current: false },
-  { name: 'Resume', href: '#', current: false },
-  { name: 'Contact', href: '#', current: false },
-]
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Example() {
+export default function Navigation({ active, setActive }) {
+
+  const [currentCategory, setCurrentCategory] = useState('Corinne Marshall || Portfolio');
+  const categories = ['About', 'Portfolio', 'Resume', 'Contact'];
+
+  useEffect(() => {
+    document.title = `Corinne Marshall || ${currentCategory}`;
+ }, [currentCategory]);
+
   return (
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
@@ -46,19 +48,9 @@ export default function Example() {
                 </div>
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
-                    {navigation.map((item) => (
-                      <a
-                        key={item.name}
-                        href={item.href}
-                        className={classNames(
-                          item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                          'px-3 py-2 rounded-md text-sm font-medium'
-                        )}
-                        aria-current={item.current ? 'page' : undefined}
-                      >
-                        {item.name}
-                      </a>
-                    ))}
+                    {categories.map((category) => (
+                      <li className={`"border border-dotted rounded-full border-pink-900 px-4 text-xl lg:px-8 font-headline xl:text-2xl  hover:text-gray-200 " ${currentCategory === category ? "border border-dotted rounded-full border-pink-900 text-gray-200" : "text-gray-400"} `} key={category}><a href="#" className="uppercase" onClick={() => { setActive(category); setCurrentCategory(category); }}>{category}</a></li>
+                      ))}
                   </div>
                 </div>
               </div>
@@ -67,18 +59,18 @@ export default function Example() {
 
           <Disclosure.Panel className="sm:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              {navigation.map((item) => (
+              {categories.map((categories) => (
                 <Disclosure.Button
-                  key={item.name}
+                  key={categories.name}
                   as="a"
-                  href={item.href}
+                  href={categories.href}
                   className={classNames(
-                    item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                    categories.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                     'block px-3 py-2 rounded-md text-base font-medium'
                   )}
-                  aria-current={item.current ? 'page' : undefined}
+                  aria-current={categories.current ? 'page' : undefined}
                 >
-                  {item.name}
+                  {categories.name}
                 </Disclosure.Button>
               ))}
             </div>
