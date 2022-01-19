@@ -6,7 +6,7 @@ export default function About({ProfilePicture}) {
         <section id="about" className="h-full">
             <div className="flex flex-col items-center text-center">
                 <ProfilePicture />
-                <p className="w-4/5 pb-12 mt-8 text-xl">
+                <p className="w-4/5 pb-12 mt-8 font-serif text-xl">
                     Hey there and thanks for stopping by! I'm an up-and-coming Full-Stack Web Developer from Connecticut.
                     My focus is building applications that solve real world problems, like Gift-Buddy: an app that stores 
                     your gift ideas for family and friends, and Vacci-Date: A dating app exclusively for singles vaccinated 

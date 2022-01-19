@@ -18,7 +18,7 @@ export default function App() {
   const [active, setActive] = useState(false);
 
   return (
-    <div className="bg-pink-500">
+    <div className="bg-pink-200">
       {!active && <Intro
         active={active}
         setActive={setActive}
