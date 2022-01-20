@@ -35,28 +35,24 @@ export default function Projects () {
   
      return (
         <section id="projects">
-           <h3 className="p-4 pt-20 text-5xl font-bold tracking-wide text-center font-headline text-gradient bg-gradient-to-tr from-pink-600 to-red-500 to-yellow-200">
+           <h3 className="p-4 pt-20 text-3xl font-bold tracking-wide text-center font-serif text-gradient bg-gradient-to-tr from-pink-200 to-pink-300 to-pink-400">
               PROJECTS
            </h3>
-           <p className="w-4/5 pt-6 m-auto text-xl text-center font-intro sm:text-2xl text-gradient bg-gradient-to-tr from-pink-600 to-red-500 to-yellow-200">
-              This section features my recent projects. These were all group efforts and I'd be happy to speak on my personal involvement so don't hesitate to reach out!
-              
-           </p>
            <div className="flex flex-wrap justify-around p-10">
               {projects.map((projects) => (
                  <div className="max-w-sm mb-4 text-center transition-all duration-500 rounded opacity-80 hover:opacity-100" key={projects.name}>
                     <img className="w-full h-48" src={projects.image} alt={projects.name} />
-                    <div className="px-6 py-4 divide-y divide-red-500 shadow-2xl divide-opacity-25">
-                       <div className="pb-2 mb-2 text-2xl font-semibold leading-tight uppercase font-headline sm:text-4xl text-gradient bg-gradient-to-br from-pink-600 to-red-500 to-yellow-200">{projects.name}</div>
-                       <p className="pt-4 pb-5 text-sm text-gray-300 font-intro sm:text-xl">
+                    <div className="px-6 py-4 divide-y divide-pink-500 shadow-2xl divide-opacity-25">
+                       <div className="pb-2 mb-2 text-2xl font-serif leading-tight uppercase font-headline sm:text-4xl text-gradient bg-gradient-to-br from-pink-200 to-pink-300 to-pink-400">{projects.name}</div>
+                       <p className="pt-4 pb-5 text-sm text-black font-intro sm:text-xl">
                           {projects.description}
                        </p>
-                       <div className="flex pt-2 pb-2 text-center text-gradient bg-gradient-to-br from-pink-600 to-red-500 to-yellow-200 font-headline">
+                       <div className="flex pt-2 pb-2 text-center text-gradient bg-gradient-to-br from-pink-200 to-pink-300 to-pink-400 font-headline">
                           <p className="m-auto text-sm sm:text-base">{projects.stack}</p>
                        </div>
-                       <div className="flex flex-wrap justify-around gap-2 px-6 py-4 text-sm sm:text-base font-headline sm:py-8">
-                          <a href={projects.github} target="_blank" className="px-8 py-2 text-gray-300 transition-all duration-500 border border-red-500 border-dotted rounded-full hover:opacity-100 hover: hover:text-red-500">CODE</a>
-                          {projects.deploy && <a href={projects.deploy} target="_blank" className="px-8 py-2 text-gray-300 transition-all duration-500 border border-red-500 border-dotted rounded-full hover:opacity-100 hover: hover:text-red-500">DEPLOY</a>}
+                       <div className="flex flex-wrap justify-around gap-2 px-6 py-4 text-sm sm:text-base font-serif sm:py-8">
+                          <a href={projects.github} target="_blank" className="px-8 py-2 text-black transition-all duration-500 border border-pink-500 border-dotted rounded-full hover:opacity-100 hover: hover:text-pink-600">CODE</a>
+                          {projects.deploy && <a href={projects.deploy} target="_blank" className="px-8 py-2 text-black transition-all duration-500 border border-pink-500 border-dotted rounded-full hover:opacity-100 hover: hover:text-pink-600">DEPLOY</a>}
                        </div>
                     </div>
                  </div>

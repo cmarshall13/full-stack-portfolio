@@ -17,7 +17,7 @@ export default function Navigation({ active, setActive }) {
  }, [currentCategory]);
 
   return (
-    <Disclosure as="nav" className="bg-pink-800">
+    <Disclosure as="nav" className="bg-pink-800 font-serif">
       {({ open }) => (
         <>
           <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -37,7 +37,7 @@ export default function Navigation({ active, setActive }) {
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
                     {categories.map((category) => (
-                      <ul className={`" rounded-full  px-4 text-xl lg:px-8 font-headline xl:text-2xl  hover:text-white " 
+                      <ul className={`" rounded-full  px-4 text-xl lg:px-8 xl:text-2xl  hover:text-white " 
                         ${currentCategory === category ? " rounded-full  text-black" : "text-white"} `} 
                         key={category}>
                           <a href="#" 
